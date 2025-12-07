@@ -13,7 +13,6 @@ ekf_filter_node:
 
     odom0: mecanum_drive_controller/odom
 
-    # نستخدم سرعة الروبوت (vx, vy, yaw) فقط
     odom0_config: [
       false, false, false,     # x, y, z
       false, false, false,     # roll, pitch, yaw
