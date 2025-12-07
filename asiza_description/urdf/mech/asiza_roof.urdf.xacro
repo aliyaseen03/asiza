@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Macro للسقف فقط -->
+  <xacro:macro name="asiza_roof" params="prefix parent:='base_link'">
+
+    <link name="${prefix}Roof-Link">
+      <inertial>
+        <origin xyz="-1.9429E-16 -6.6613E-16 -0.0015" rpy="0 0 0" />
+        <mass value="2.2641" />
+        <inertia
+          ixx="0.011268"
+          ixy="-3.0103E-05"
+          ixz="-9.9747E-18"
+          iyy="0.028594"
+          iyz="-5.5634E-18"
+          izz="0.039859" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="file://$(find asiza_description)/meshes/Roof-Link.STL"/>
+
+        </geometry>
+        <material name="roof_gray">
+          <color rgba="0.52941 0.54902 0.54902 1" />
+        </material>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="file://$(find asiza_description)/meshes/Roof-Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}Roof-Joint" type="fixed">
+      <origin xyz="-0.00024325 0.000111 0.122" rpy="0 0 0" />
+      <parent link="${prefix}${parent}" />
+      <child  link="${prefix}Roof-Link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <gazebo reference="${prefix}base_link">
+          <visual>
+            <material>
+              <ambient>0.53 0.55 0.55 1</ambient>
+              <diffuse>0.53 0.55 0.55 1</diffuse>
+              <specular>0.1 0.1 0.1 1</specular>
+            </material>
+          </visual>
+        </gazebo>
+
+  </xacro:macro>
+</robot>
