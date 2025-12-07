@@ -44,6 +44,9 @@ Key Features
   Extras
   - AprilTag docking, diagnostics, RViz setup.
 
+---
+
 Robot Images & Architecture Diagram:
+
 <img width="1004" height="887" alt="image" src="https://github.com/user-attachments/assets/2b889178-e65e-4354-806f-81c5c3f8e8eb" />
 
